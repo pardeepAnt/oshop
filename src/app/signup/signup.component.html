@@ -1,0 +1,41 @@
+<div class="form" *ngIf="!singupDone">
+<form (ngSubmit)="createProfile(f)" #f="ngForm">
+  <div class="example-container">
+    <mat-form-field>
+      <input type="text" matInput #fname = "ngModel" required ngModel id="fname" name="fname" placeholder="First Name">
+    </mat-form-field>
+  
+    <mat-form-field>
+        <input type="text" matInput ngModel id="lname" required #lname="ngModel" name="lname" placeholder="Last Name">
+      </mat-form-field>
+      <mat-form-field>
+          <input type="email" autocomplete="off" matInput ngModel id="email" required name="email" #email="ngModel" placeholder="Email">
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" autocomplete="off" matInput ngModel id="password" minlength="10" maxlength="12" required name="password" #password="ngModel" placeholder="Password">
+          </mat-form-field>
+
+            <mat-chip-list class="mat-chip-list-stacked" *ngIf="password.touched && !password.valid">
+              <mat-chip  selected="true" color="warn" *ngIf="password.errors.minlength" >
+                Password should be greater than 5 or less than 8
+              </mat-chip>
+            </mat-chip-list>
+            
+    <mat-form-field>
+      <mat-select ngModel id="gender" name="gender" #gender="ngModel" requried placeholder="Gender">
+        <mat-option value="m">Male</mat-option>
+        <mat-option value="f">Female</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" *ngIf="f.valid">Create Profile</button>
+    <button type="submit" mat-raised-button disabled *ngIf="!f.valid">Create Profile</button>
+  </div>
+</form>
+  </div>
+  <div class="form" *ngIf="singupDone">
+      <mat-chip-list class="mat-chip-list-stacked">
+          <mat-chip  selected="true" color="primary"  >
+           Your profile is created sucessfully.
+          </mat-chip>
+        </mat-chip-list>
+  </div>

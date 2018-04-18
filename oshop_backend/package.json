@@ -1,0 +1,20 @@
+{
+  "name": "oshop_backend",
+  "version": "1.0.0",
+  "description": "its e-commerce website",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pardeep kumar",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "joi": "^13.2.0",
+    "jsonwebtoken": "^8.2.1",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.6"
+  }
+}
