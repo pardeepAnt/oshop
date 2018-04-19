@@ -1,3 +1,6 @@
+import { ProductService } from './services/product.service';
+import { Adminguard } from './services/adminguard.service';
+
 
 import { SignupService } from './services/signup.service';
 
@@ -30,6 +33,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
+import { CustomFormsModule } from 'ng2-validation';
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +48,8 @@ import {MatChipsModule} from '@angular/material/chips';
     AdminManageProductsComponent,
     OrderCompletedComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +65,15 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatChipsModule
+    MatChipsModule,
+    CustomFormsModule
   ],
-  providers: [AuthService,SignupService,LoginGuard],
+  providers: [AuthService,
+              SignupService,
+              LoginGuard,
+              Adminguard,
+              ProductService
+            ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

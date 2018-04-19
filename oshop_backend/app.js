@@ -2,6 +2,7 @@ var express = require('express')
 var app         = express()
 
 var userRouter  = require('./app/modules/user/userRoute')
+var adminRouter = require('./app/modules/admin/adminRouter')
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
@@ -17,3 +18,4 @@ app.listen(port,()=>{
 })
 
 app.use('/api/user',userRouter)
+app.use('/api/admin',adminRouter)

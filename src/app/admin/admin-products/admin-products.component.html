@@ -1,3 +1,22 @@
-<p>
-  admin-products works!
-</p>
+<a routerLink="/admin/add-product" class="btn btn-success">Add Product</a>
+
+<table class="table">
+<thead>
+  <tr>
+  <th>
+    Title
+  </th>
+  <th>
+    price
+  </th>
+  <th></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let pdt of products" >
+    <th>{{pdt.title}}</th>
+    <th>{{pdt.price}}</th>
+    <th><a [routerLink]="['/admin/products/',pdt.id]">Edit</a></th>
+  </tr>
+</tbody>
+</table>

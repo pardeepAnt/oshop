@@ -19,6 +19,10 @@ export class AuthService {
    return this.http.post(environment.apiUrl+"/user/login",form).map(response=>{
       let result = response.json();
       if(result && result.token){
+        
+       
+      
+        
         localStorage.setItem('token',result.token);
         return true;
       }else{
@@ -28,6 +32,14 @@ export class AuthService {
  }
  isLoggedIn(){
   return tokenNotExpired();
+ }
+ isAdmin(){
+  let jwt = new JwtHelper();
+  let token = localStorage.getItem('token');
+  let decodeToken = jwt.decodeToken(token);
+  if(decodeToken.isAdmin == 0)
+    return false;
+    return true;
  }
  logout(){
   localStorage.removeItem('token');

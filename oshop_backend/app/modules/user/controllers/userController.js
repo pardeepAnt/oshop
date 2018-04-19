@@ -15,7 +15,7 @@ var userContoller ={
             return res.status(200).json("Please check data this email not registered with us");
         }else{
            
-            const token = jwt.sign({'id':data.id,'firstName':data.firstName},'O$hop', {
+            const token = jwt.sign({'id':data.id,'firstName':data.firstName,'isAdmin':data.isAdmin},'O$hop', {
             });
             userData = { email : data.email,firstName : data.firstName}
             let send_data = {success:true,status:400,message:"user logged in successfully",token:token,data:userData};
