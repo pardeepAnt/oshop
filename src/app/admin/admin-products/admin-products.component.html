@@ -1,4 +1,16 @@
-<a routerLink="/admin/add-product" class="btn btn-success">Add Product</a>
+<p>
+
+    <a routerLink="/admin/add-product" class="btn btn-success pull-right">Add Product</a>
+  </p>
+
+<p>
+
+  
+    
+    <input type="text" (keyup)="searchValue(search.value)" #search placeholder="Search Product..." class="form-control">
+  
+</p>
+
 
 <table class="table">
 <thead>
@@ -13,7 +25,7 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let pdt of products" >
+  <tr *ngFor="let pdt of filterProduct" >
     <th>{{pdt.title}}</th>
     <th>{{pdt.price}}</th>
     <th><a [routerLink]="['/admin/products/',pdt.id]">Edit</a></th>

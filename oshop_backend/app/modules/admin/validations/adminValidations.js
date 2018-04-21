@@ -18,6 +18,26 @@ var adminValidation = {
             }
         })
 
+    },
+    updateproduct:function(req,res,next){
+        const schema = {
+            id: Joi.number(),
+            title: Joi.string(),
+            price: Joi.number(),
+            category:Joi.string(),
+            image:Joi.string()
+        
+        };
+    
+        Joi.validate(req.params, schema, function (err, value) { 
+            if(!err){
+                next();
+            }else{
+                return res.status(400).json(err.details[0].message);
+                
+            }
+        })
+
     }
 }
 module.exports =adminValidation

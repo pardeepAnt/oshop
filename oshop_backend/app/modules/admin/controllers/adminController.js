@@ -36,6 +36,49 @@ var adminController={
         }).catch(function(err){
             res.status(400).json(err) 
         })
+    },
+    updateproduct:function(req,res,param){
+
+        models.products.findOne({
+            where:{
+                id:req.body.id
+            }
+        }).then(data=>{
+            data.title=req.body.title,
+            data.price=req.body.price,
+            data.category=req.body.category,
+            data.imageUrl=req.body.image
+            data.save().then(data=>{
+                status={
+                    saved:1
+                }
+                res.status(200).json(status);
+            }).catch(function(err){
+                status={
+                    saved:0,error:err
+                }
+                res.status(400).json(status);  
+            });
+        }).catch(function (err) {
+            status={
+                saved:0,error:err
+            }
+            res.status(400).json(status);
+          });
+    },
+    deleteProduct:function(req,res,next){
+        id = req.params.id;
+        models.products.findOne({
+            where:{
+                id:id
+            }
+        }).then(data=>{
+            data.destroy().then();
+            status={
+                saved:1
+            }
+            res.status(200).json(status);
+        })
     }
 
 }

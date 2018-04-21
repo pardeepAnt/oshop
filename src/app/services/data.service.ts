@@ -24,8 +24,9 @@ export class DataService {
       return response.json()
     }).catch(this.handleError);
   }
- update(resoruce){
-   return this.http.put(this.url+'/update',resoruce).map(response=>{
+ update(id,resoruce){
+   resoruce.id=id;
+   return this.http.put(this.url+'update',resoruce).map(response=>{
      return response.json();
    }).catch(this.handleError);
  }

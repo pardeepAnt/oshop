@@ -35,6 +35,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import { CustomFormsModule } from 'ng2-validation';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +68,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     MatSnackBarModule,
     MatSelectModule,
     MatChipsModule,
-    CustomFormsModule
+    CustomFormsModule,
+
   ],
   providers: [AuthService,
               SignupService,
