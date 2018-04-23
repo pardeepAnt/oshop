@@ -1,4 +1,6 @@
 var models = require('../../../../models')
+var dateTime = require('node-datetime')
+
 var adminController={
     addproduct:function(req,res,param){
         models.products.create({
@@ -79,7 +81,32 @@ var adminController={
             }
             res.status(200).json(status);
         })
-    }
+    },
+    addCart:function(req,res){
+        var dt = dateTime.create();
+       
+        models.shoppingCarts.findOrCreate({
+            where:{
+                id:req.body.cartId
+            }            
+        }).spread((shoppingcarts, created) => {
+            if(shoppingcarts.id){
+                models.cartItems.findOrCreate({
+                    where:{
+                        cartId:shoppingcarts.id,
+                        product_id : req.body.id
+                    }            
+                }).spread((cartitems, created) => {
 
+                })
+            }
+           res.status(200).json(shoppingcarts.id)
+          
+        })
+        
+        
+        
+        
+    }
 }
 module.exports = adminController

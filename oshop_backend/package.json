@@ -15,6 +15,7 @@
     "joi": "^13.2.0",
     "jsonwebtoken": "^8.2.1",
     "mysql2": "^1.5.3",
+    "node-datetime": "^2.0.6",
     "sequelize": "^4.37.6"
   }
 }

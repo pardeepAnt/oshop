@@ -3,7 +3,7 @@ import { Adminguard } from './services/adminguard.service';
 
 
 import { SignupService } from './services/signup.service';
-
+import { ShopcartService } from './services/shopcart.service'
 import { LoginGuard } from './services/login.guard';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -75,7 +75,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
               SignupService,
               LoginGuard,
               Adminguard,
-              ProductService
+              ProductService,
+              ShopcartService
             ],
   bootstrap: [AppComponent]
 })

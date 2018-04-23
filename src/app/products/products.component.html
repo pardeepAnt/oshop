@@ -1,3 +1,29 @@
-<p>
-  products works!
-</p>
+<div class="row">
+
+  <div class="col-md-3">
+      <div class="sticky-top">
+  <div class="list-group">
+      <a (click)="do_search()" [class.active]="category === 'all'"  routerLink="/products"  [queryParams]="{ category: 'all' }" class="list-group-item list-group-item-action">All</a>
+    <a  (click)="do_search()" [class.active]="category === 'bread'" routerLink="/products" [queryParams]="{ category: 'bread' }" class="list-group-item list-group-item-action">Bread</a>
+    <a (click)="do_search()" [class.active]="category === 'vegitable'" routerLink="/products" [queryParams]="{ category: 'vegitable' }" class="list-group-item list-group-item-action">Vegitable</a>
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="row">
+<ng-container *ngFor="let product of getProduct;let i=index">
+  <div class="col">
+  <div class="card" style="width: 15rem;">
+  <img class="card-img-top" [src]="product.imageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.price | currency }}</p>
+    <a (click)="addCart(product)" class="btn btn-primary">Add to cart</a>
+  </div>
+</div>
+</div>
+<div *ngIf="(i+1) % 2 === 0" class="w-100" ></div>
+</ng-container>
+</div>
+</div>
+</div>
